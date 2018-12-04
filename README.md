@@ -15,9 +15,13 @@ Features:
 npm install
 ```
 
-## Usage / Examples
+## Configuration
 
 In src/config/config.ts you can modify some parameters:
 - Database conection
 - File to be processed
 - Columns' name row
+
+## Usage
+
+excecute run.bat
