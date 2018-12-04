@@ -63,7 +63,6 @@ function checkDataTypes(collection){
                 if( property.indexOf('attachment') >= 0 ){
                     if( existsSync(item[property]) ){                        
                         item[property] = {
-                            //"asdasdwqe\\asdqwe".substring("asdasdwqe\\asdqwe".indexOf('\\')+1)
                             name: item[property].substring(item[property].lastIndexOf('\\') + 1),
                             data: readFileSync(item[property])
                         };
