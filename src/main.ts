@@ -45,7 +45,7 @@ mongoClient.connect()
                 ).catch(
                     err => console.log(err)
                 );
-                
+
             }
         )
         mongoClient.close();
@@ -61,8 +61,12 @@ function checkDataTypes(collection){
 
             for( let property in item ){
                 if( property.indexOf('attachment') >= 0 ){
-                    if( existsSync(item[property]) ){
-                        item[property] = readFileSync(item[property]);
+                    if( existsSync(item[property]) ){                        
+                        item[property] = {
+                            //"asdasdwqe\\asdqwe".substring("asdasdwqe\\asdqwe".indexOf('\\')+1)
+                            name: item[property].substring(item[property].lastIndexOf('\\') + 1),
+                            data: readFileSync(item[property])
+                        };
                     }
                 }else if ( typeof item[property] === "string" && (item[property].toLowerCase() === 'true' || item[property].toLowerCase() === 'false') ){
                     item[property] = Boolean(item[property]);
