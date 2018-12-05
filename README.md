@@ -24,4 +24,4 @@ In src/config/config.ts you can modify some parameters:
 
 ## Usage
 
-excecute run.bat
+execute run.bat
